@@ -1,0 +1,33 @@
+This is a project following the YouTube series "OpenGL" by The Cherno https://www.youtube.com/playlist?list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2
+
+This is intened to be a reference for future projects using OpenGL on Windows using Visual Studio
+
+0: Setup
+	- Visual Studio's default structure is a little strange, so this is a different way
+	- Make sure it is set to all configurations and all platforms for the following steps
+	- Change Project Output directory to $(SolutionDir)bin\$(Platform)\$(Configuration)\
+	- Change Project Intermediate directory to $(SolutionDir)bin-int\$(Platform)\$(Configuration)\
+1: Welcome to OpenGL
+	- OpenGL is an API, an Application Programming Interface, so it is essentially a bunch of functions we can call to do certain
+	  things. Because it is a "Graphics API," it allows us to make graphics.
+	- OpenGL allows us to access the GPU
+	- OpenGL is a specification. There is no implementation. That is written by the graphics card manufacturer
+	- It is not open source because of who writes it, and because it doesn't contain any code. It is a specification.
+	- Legacy OpenGL is basically a set of presets. Modern OpenGL gives us much more control. That is what this will be
+	- A shader is a code that runs on the GPU. Programmable shaders are the main difference between Legacy and Modern
+
+2: Setting up OpenGL and Creating a Window in C++
+	- The library we will be using to create windows on Mac, Windows, and Linux is GLFW. It is another specification
+	- https://www.glfw.org/
+	- I will be using the source code, adding it in a seperate project in Visual Studio and linking it as a static library.
+	  https://www.youtube.com/watch?v=Wt4dxDNmDA8 (The Cherno's way)
+		- Right click on the solution and create a new project (Empty)
+		- Make sure the solutions project (the parent) has its configuration set to Application(.exe)
+		- Change the configuration of the just created project to statis library(.lib), makeing sure to be on all configurations and all
+		  platforms in the settings
+		- Create an src folder in the new project
+		- Link to it by editing the properties of the parent under C++ -> General -> Additional Include Directories, type $(SolutionDir)NAME_
+		  OF_LIBRARY_DIRECTORY\src;
+		- Right click on the parent and add a reference to the child project to link agains the .lib file created in the build process.
+		  This has the effect that Visual Studio will automatically adjust paths if we decide to rename something, and it also means we only
+		  need to build the parent and Visual Studio with automatically build all the children first
