@@ -1,6 +1,6 @@
 This is a project following the YouTube series "OpenGL" by The Cherno https://www.youtube.com/playlist?list=PLlrATfBNZ98foTJPJ_Ev03o2oq3-GGOS2
 
-This is intened to be a reference for future projects using OpenGL on Windows using Visual Studio
+This is intended to be a reference for future projects using OpenGL on Windows using Visual Studio
 
 0: Setup
 	- Visual Studio's default structure is a little strange, so this is a different way
@@ -19,15 +19,15 @@ This is intened to be a reference for future projects using OpenGL on Windows us
 2: Setting up OpenGL and Creating a Window in C++
 	- The library we will be using to create windows on Mac, Windows, and Linux is GLFW. It is another specification
 	- https://www.glfw.org/
-	- I will be using the source code, adding it in a seperate project in Visual Studio and linking it as a static library.
+	- I will be using the source code, adding it in a separate project in Visual Studio and linking it as a static library.
 	  https://www.youtube.com/watch?v=Wt4dxDNmDA8 (The Cherno's way)
 		- Right click on the solution and create a new project (Empty)
 		- Make sure the solutions project (the parent) has its configuration set to Application(.exe)
-		- Change the configuration of the just created project to statis library(.lib), makeing sure to be on all configurations and all
+		- Change the configuration of the just created project to static library(.lib), making sure to be on all configurations and all
 		  platforms in the settings
 		- Create an src folder in the new project
 		- Link to it by editing the properties of the parent under C++ -> General -> Additional Include Directories, type $(SolutionDir)NAME_
 		  OF_LIBRARY_DIRECTORY\src;
-		- Right click on the parent and add a reference to the child project to link agains the .lib file created in the build process.
+		- Right click on the parent and add a reference to the child project to link against the .lib file created in the build process.
 		  This has the effect that Visual Studio will automatically adjust paths if we decide to rename something, and it also means we only
 		  need to build the parent and Visual Studio with automatically build all the children first
